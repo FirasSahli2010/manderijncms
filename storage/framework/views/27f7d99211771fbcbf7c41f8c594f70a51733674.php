@@ -1,0 +1,2 @@
+<?php echo $__env->make('layouts.admin.footers.nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\laragon\www\acdivet\resources\views/layouts/admin/footers/auth.blade.php ENDPATH**/ ?>

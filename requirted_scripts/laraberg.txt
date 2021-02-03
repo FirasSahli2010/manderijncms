@@ -1,0 +1,41 @@
+composer require van-ons/laraberg
+
+php artisan vendor:publish --provider="VanOns\Laraberg\LarabergServiceProvider"
+
+php artisan migrate
+
+* Add js and css
+<link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
+
+<script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
+
+* Update
+php artisan vendor:publish --provider="VanOns\Laraberg\LarabergServiceProvider" --tag="public" --force
+
+
+
+* Models
+In order to add the editor content to a model Laraberg provides the 'Gutenbergable' trait.
+
+use VanOns\Laraberg\Models\Gutenbergable;
+
+class MyModel extends Model {
+  use Gutenbergable;
+}
+This adds multiple attributes to your model that will help you with creating/updating/rendering the Gutenberg content.
+
+$content // This is the raw content from the Gutenberg editor
+$model = new MyModel;
+
+// Add or update the content
+$model->lb_content = $content;
+
+// Save the model
+$model->save();
+
+// Get the rendered HTML
+$model->lb_content;
+
+// Get the raw Gutenberg output, this should be in the target textarea when updating content
+$model->lb_raw_content;
+Note: The old renderContent, getRawContent, getRenderedContent and setContent methods from v0.0.4-beta and lower are deprecated and will be removed in a future release.

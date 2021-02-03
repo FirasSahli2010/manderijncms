@@ -1,0 +1,29 @@
+composer require unisharp/laravel-filemanager
+ php artisan vendor:publish --tag=lfm_config
+ php artisan vendor:publish --tag=lfm_public
+ php artisan storage:link
+
+ php artisan route:clear
+ php artisan config:clear
+
+* If not exist
+  php artisan storage:link
+
+* if needed
+  Edit APP_URL in .env.
+
+
+* Edit routes/web.php :
+
+Create route group to wrap package routes.
+
+ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+     \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
+Make sure auth middleware is present to :
+
+prevent unauthorized uploads
+work properly with multi-user mode
+
+* make sure database exists
+
