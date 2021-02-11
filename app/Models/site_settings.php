@@ -18,6 +18,7 @@ class site_settings extends Model
         'language',
         'site_name',
         'site_icon',
+        'site_logo',
         'site_meta_desc',
         'site_meta_keywords',
         'site_content_rights',

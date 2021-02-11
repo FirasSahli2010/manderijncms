@@ -11,15 +11,20 @@ use Illuminate\Support\Str;
 
 use App\Http\Controllers\LanguagesController;
 
+use App\Http\Controllers\ImageUploadController;
+
 class SiteSettingsController extends Controller
 {
 
   private LanguagesController $langController;
+  private ImageUploadController $image_upload;
 
   public function __construct()
   {
       $this->middleware('auth');
       $this->langController = new LanguagesController();
+
+      $this->image_upload = new ImageUploadController();
   }
 
     /**
@@ -103,6 +108,20 @@ class SiteSettingsController extends Controller
         $setting_item->site_name = $request["site_name_$id"];
         $setting_item->site_meta_desc = $request["site_meta_desc_$id"];
         $setting_item->site_meta_keywords = $request["site_meta_keywords_$id"];
+
+        //$this->image_upload->imageUploadPost($request, $id);
+
+        $image_file_name = 'image_'.$id;
+        if ($request["$image_file_name"]) {
+          $image_name = $request["$image_file_name"]->getClientOriginalName().'.'.$request["$image_file_name"]->extension(); //->extension();
+
+          $request[$image_file_name]->storeAs('images', $image_name);
+
+          $request["$image_file_name"]->move(public_path('images'), $image_name);
+
+          $setting_item->site_logo = $image_name;
+        }
+
 
         $setting_item->save();
         return redirect('/manage/site_settings/')->with('message', 'Item Saved!');
