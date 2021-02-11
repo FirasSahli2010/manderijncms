@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Menus;
+use App\Models\MeunItem;
 use Illuminate\Http\Request;
 
-class MenusController extends Controller
+class MeunItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MenusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Menus  $menus
+     * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function show(Menus $menus)
+    public function show(MeunItem $meunItem)
     {
         //
     }
@@ -52,10 +52,10 @@ class MenusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Menus  $menus
+     * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Menus $menus)
+    public function edit(MeunItem $meunItem)
     {
         //
     }
@@ -64,10 +64,10 @@ class MenusController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Menus  $menus
+     * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menus $menus)
+    public function update(Request $request, MeunItem $meunItem)
     {
         //
     }
@@ -75,10 +75,10 @@ class MenusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menus  $menus
+     * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Menus $menus)
+    public function destroy(MeunItem $meunItem)
     {
         //
     }
