@@ -44,6 +44,7 @@
     40 => 'App\\Providers\\EventServiceProvider',
     41 => 'App\\Providers\\RouteServiceProvider',
     42 => 'Kyslik\\ColumnSortable\\ColumnSortableServiceProvider',
+    43 => 'App\\Providers\\HeaderFooterViewComposerServiseProvider',
   ),
   'eager' => 
   array (
@@ -76,6 +77,7 @@
     26 => 'App\\Providers\\EventServiceProvider',
     27 => 'App\\Providers\\RouteServiceProvider',
     28 => 'Kyslik\\ColumnSortable\\ColumnSortableServiceProvider',
+    29 => 'App\\Providers\\HeaderFooterViewComposerServiseProvider',
   ),
   'deferred' => 
   array (
