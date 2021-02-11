@@ -33,7 +33,7 @@
                 </h2>
                 <div id="flush-collapse_{{$setting_items->id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading_{{$setting_items->id}}" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body">
-                    <form method="POST"  action="/manage/site_settings/update/{{ $setting_items->id }}" class="form-horizontal">
+                    <form method="POST"  action="/manage/site_settings/update/{{ $setting_items->id }}" class="form-horizontal" enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
                       <div class="form-group">
@@ -71,6 +71,15 @@
                           <input style="width: 50%;" type="text" id="site_meta_keywords_{{ $setting_items->id }}" name="site_meta_keywords_{{ $setting_items->id }}" value="{{ $setting_items->site_meta_keywords }}" class="form-control" />
                           <p class="description">A list of keywords that descripe the website, this will help linking to search engines.</p>
                         </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="col-md-6">
+                               <input type="file" name="image_{{ $setting_items->id }}" id="image_{{ $setting_items->id }}" class="form-control">
+                           </div>
+                           <img src="{{ URL::to('/') }}/images/{{ $setting_items->site_logo }}" id="thumbnail_{{ $setting_items->id }}" style="width: 50%" type="text" name="filepath_{{ $setting_items->id }}">
+                        </div>
+
                       </div>
                       <div style="text-align: center;" class="form-group">
                           <div class="col-lg-12">
