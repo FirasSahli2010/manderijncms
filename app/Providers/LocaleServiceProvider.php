@@ -27,6 +27,8 @@ class LocaleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      Route::bind('locale',function ($name){
+          in_array($name,config('app.languages'))? app()->setlocale($name) : abort(404);
+        });
     }
 }

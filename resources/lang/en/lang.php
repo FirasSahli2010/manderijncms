@@ -1,5 +1,7 @@
 <?php
- return [ 'welcome' => 'Welcome',
- 'title'=> 'Laravel Localization',
- 'message'=> "Let's learn Laravel Localization"],
+ return [
+   'welcome' => 'Welcome',
+ 'title'=> 'Akbitara',
+ 'message'=> "Let's learn Laravel Localization"
+]
 ?>

@@ -4,7 +4,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-6">
                     <!-- <h1 class="text-white">{{ __('Welcome to Argon Dashboard FREE Laravel Live Preview.') }}</h1> -->
-                    <h1 class="text-white">{{ __('Here is the header.') }}</h1>
+                    <!-- <h1 class="text-white">{{ __('Here is the header.') }}</h1> -->
+                    <h1 class="text-white"><?php echo __('lang.welcome') ?> {{ $site_name }}  :: <?php echo __('lang.title');?></h1>
                 </div>
             </div>
         </div>
@@ -35,6 +36,26 @@
                     </ul>
                   </li>
                 </ul>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- @foreach (config('app.alt_langs') as $locale)
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href=""
+                                @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}</a>
+                        </li>
+                    @endforeach -->
+
+                    <li class="nav-item">
+                        <select id="language" class="form-control rounded-0" name="language">
+                            @foreach(array_values(config('locale.languages')) as $language)
+                                <option value="{{$language[0]}}" @if ($language[0]===App::getLocale()) selected @endif>{{ $language[3]}}</option>
+                            @endforeach
+                        </select>
+                    </li>
+                  </ul>
+
+
                 <form>
                   <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </form>
