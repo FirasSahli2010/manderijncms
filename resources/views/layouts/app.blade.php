@@ -72,7 +72,7 @@
           }
         </style>
     </head>
-    <body class="{{ $class ?? '' }}" style="background-color: #000;">
+    <body class="{{ $class ?? '' }}">
       @guest()
         @include('layouts.headers.guest')
       @endguest
@@ -423,4 +423,81 @@ $(function () {
           });
       });
     </script>
+    <script type="application/javascript">
+       // Enable the tooltip
+       $(function () {
+           $('[data-toggle="tooltip"]').tooltip()
+       });
+       // Change the frontend language
+       $('#language').change(function () {
+           window.location = './' + $('#language').val();
+       });
+       $(document).ready(function () {
+           showOrHideTranslationFrom();
+           showOrHideSlug();
+           showOrHideReadme();
+           showOrHidetranslateStrings();
+       });
+       $('#translationType').change(function () {
+           showOrHideTranslationFrom();
+           showOrHideSlug();
+           showOrHideReadme();
+       });
+       // Show or hide the translateStrings element
+       $('#originalLanguage, #destinationLanguage').change(function () {
+           showOrHidetranslateStrings();
+       });
+       function showOrHideTranslationFrom() {
+           switch ($('#translationType').val()) {
+               case 'plugin':
+                   $('#row-translationFrom').show();
+                   break;
+               default:
+                   $('#row-translationFrom').hide();
+           }
+       }
+       function showOrHideSlug() {
+           switch ($('#translationType').val()) {
+               case 'theme':
+               case 'plugin':
+                   $('#row-slug').show();
+                   $('#slug').prop('required',true);
+                   break;
+               default:
+                   $('#row-slug').hide();
+                   $('#slug').removeAttr('required');
+                   break;
+           }
+       }
+       function showOrHideReadme() {
+           switch ($('#translationType').val()) {
+               case 'theme':
+               case 'plugin':
+                   $('#row-readme').show();
+                   break;
+               default:
+                   $('#row-readme').hide();
+                   break;
+           }
+       }
+       function showOrHidetranslateStrings() {
+           var originalLanguage = $('select[name=originalLanguage]').val();
+           var destinationLanguage = $('select[name=destinationLanguage]').val();
+           $.ajax({
+               type: 'GET',
+               url: '/change',
+               data: {originalLanguage: originalLanguage, destinationLanguage: destinationLanguage},
+               success: function (resp) {
+                   if (resp > 0) {
+                       $('#row-translateStrings').show();
+                   } else {
+                       $('#row-translateStrings').hide();
+                   }
+               },
+               error: function (e) {
+                   console.log('Error: ' + e);
+               }
+           });
+       }
+   </script>
 </html>
