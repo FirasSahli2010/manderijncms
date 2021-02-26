@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\LanguagesController;
 use App\Models\Categories;
+use App\Models\Languages;
 
 use App\Models\Meun;
 use Illuminate\Http\Request;
@@ -101,7 +102,14 @@ class MeunController extends Controller
       //$id = $array['id']
       $langArray = $langListAsJSON;
 
-      return view('manage.menu.detail', compact('menu', 'data', 'langArray'));
+      $category = $menu->parent_category;
+      $catTitle = $category->title;
+
+      $language = $menu->parent_language;
+      $langName = $language->name;
+
+      $menu_items = $menu->menu_items;
+      return view('manage.menu.detail', compact('menu', 'data', 'category', 'catTitle', 'language', 'langName', 'menu_items'));
     }
 
     /**

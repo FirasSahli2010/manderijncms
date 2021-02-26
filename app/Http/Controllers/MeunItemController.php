@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\MeunItem;
+use App\Models\Meun;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class MeunItemController extends Controller
@@ -22,9 +24,10 @@ class MeunItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($menu_id)
     {
-        //
+        $menu = Meun::findOrFail($menu_id);
+        return view('manage.menu_item.add', compact('menu'));
     }
 
     /**
@@ -35,18 +38,20 @@ class MeunItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $menuItem = new MeunItem();
+      $menuItem->title = $request['title'];
+      $menuItem->slug = Str::slug($menuItem->title);
+      $menuItem->name = Str::slug($menuItem->title);
+      $menuItem->order = 0;
+      $menuItem->link = $request['link'];
+      $menuItem->menu_id = $request['menu'];
+      $menuItem->save();
+      return redirect('/manage/menu/'.$menuItem->menu_id)->with('message', 'Record created!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MeunItem  $meunItem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MeunItem $meunItem)
+    public function show($request)
     {
-        //
+      //
     }
 
     /**
@@ -55,9 +60,11 @@ class MeunItemController extends Controller
      * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(MeunItem $meunItem)
+    public function edit($menu_id, $id)
     {
-        //
+        $menu = Meun::findOrFail($menu_id);
+        $menu_item = MeunItem::findOrFail($id);
+        return view('manage.menu_item.edit', compact('menu', 'menu_item'));
     }
 
     /**
@@ -67,9 +74,39 @@ class MeunItemController extends Controller
      * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MeunItem $meunItem)
+    public function modify($menu, $id)
     {
-        //
+      return 'modify is called';
+      // $menuItem = MeunItem::findOrFail($id);
+      // $menuItem->title = $request['title'];
+      // $menuItem->slug = Str::slug($menuItem->title);
+      // $menuItem->name = Str::slug($menuItem->title);
+      // $menuItem->order = 0;
+      // $menuItem->link = $request['link'];
+      // $menuItem->menu_id = $request['menu'];
+      // $menuItem->save();
+      // return redirect('/manage/menu/'.$request['menu'])->with('message', 'Record updated!');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\MeunItem  $meunItem
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $menu, $id)
+    {
+      //return 'Update is called';
+      $menuItem = MeunItem::findOrFail($id);
+      $menuItem->title = $request['title'];
+      $menuItem->slug = Str::slug($menuItem->title);
+      $menuItem->name = Str::slug($menuItem->title);
+      $menuItem->order = 0;
+      $menuItem->link = $request['link'];
+      //$menuItem->menu_id = $menu;
+      $menuItem->save();
+      return redirect('/manage/menu/'.$menu)->with('message', 'Record updated!');
     }
 
     /**
@@ -78,8 +115,44 @@ class MeunItemController extends Controller
      * @param  \App\Models\MeunItem  $meunItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MeunItem $meunItem)
+    public function destroy($id)
     {
-        //
+      $menu_item = MeunItem::findorfail($id); // fetch the category
+      $menu_id = $menu_item->menu_id;
+
+      $result = $menu_item->delete(); //delete the fetched category
+
+      if ($result) {
+
+            // return view('manage.category.index',compact('categories'));
+            return redirect('/manage/menu/'.$menu_id)->with('message', 'Record deleted!');
+        } else {
+
+            return redirect('/manage/menu/'.$menu_id)->with('message', 'Delete failed!');
+        }
+
+        return response($response);
+    }
+
+    public function enable($menu_id, $id)
+    {
+
+      $menuItem = MeunItem::findorfail($id);
+
+      $menuItem->shw ='Y';
+
+      $menuItem->save();
+      return redirect('manage/menu/'.$menu_id)->with('message', 'Menu item enabled!');
+    }
+
+    public function disable($menu_id, $id)
+    {
+
+      $menuItem = MeunItem::findorfail($id);
+
+      $menuItem->shw ='N';
+
+      $menuItem->save();
+      return redirect('manage/menu/'.$menu_id)->with('message', 'Menu item disabled!');
     }
 }
