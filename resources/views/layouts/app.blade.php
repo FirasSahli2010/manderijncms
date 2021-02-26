@@ -7,8 +7,11 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'شركة أكديما لصناعة الأدوية البيطرية :: أكبيطرة') }}</title>
+        <!-- <title>{{ config('app.name', 'شركة أكديما لصناعة الأدوية البيطرية :: أكبيطرة') }}</title> -->
+        <title> <?php echo __('lang.title');?> :: {{ config('app.name', '') }}</title>
 
+
+        <link href="{{ asset('css') }}/app.css" rel="stylesheet" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -47,10 +50,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
 
         <!-- Icons -->
-        <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-        <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <!-- <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+        <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
         <!-- Argon CSS -->
-        <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+        <!-- <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet"> -->
         <link rel="manifest" href="{{ asset('assets') }}/img/manifest/manifest.json">
 
         <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
@@ -74,7 +77,49 @@
               font-size: 3.5rem;
             }
           }
+
+          .site_title {
+            color: {{ $site_title_text_color }} !important;
+          }
+          @media(max-width: 676px) {
+            .hide_small {
+              display: none;
+            }
+          }
+          @media(min-width: 676px) {
+            .hide_small {
+              display: inline;
+            }
+          }
         </style>
+
+        <script type = "text/javascript">
+        var images = [], x = 0;
+        images[0] = "{{ URL::to('/') }}/images/chicken.png";
+        images[1] = "{{ URL::to('/') }}/images/cow.png";
+
+          function displayNextImage() {
+
+              if (++x >= images.length) {
+                x = 0;
+              }
+
+              document.getElementById("header_banner_img").src = images[x];
+
+          }
+
+          function displayPreviousImage() {
+              x = (x <= 0) ? images.length - 1 : x - 1;
+              document.getElementById("header_banner_img").src = images[x];
+          }
+
+          function startTimer() {
+              setInterval(displayNextImage, 5000);
+          }
+
+
+          startTimer()
+      </script>
     </head>
     <body class="{{ $class ?? '' }}">
       @guest()
@@ -322,109 +367,6 @@ $(function () {
 
       <script type="text/javascript">
       $(document).ready(function () {
-
-
-          $('#master').on('click', function(e) {
-           if($(this).is(':checked',true))
-           {
-              $(".sub_chk").prop('checked', true);
-           } else {
-              $(".sub_chk").prop('checked',false);
-           }
-          });
-
-
-          $('.delete_all').on('click', function(e) {
-
-
-              var allVals = [];
-              $(".sub_chk:checked").each(function() {
-                  allVals.push($(this).attr('data-id'));
-              });
-
-
-              if(allVals.length <=0)
-              {
-                  alert("Please select row.");
-              }  else {
-
-
-                  var check = confirm("Are you sure you want to delete this row?");
-                  if(check == true) {
-
-
-                      var join_selected_values = allVals.join(",");
-
-
-                      $.ajax({
-                          url: $(this).data('url'),
-                          /* type: 'DELETE', */
-                          type: 'GET',
-                          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                          data: 'ids='+join_selected_values,
-                          success: function (data) {
-                            window.location.replace("/manage/category/");
-                              // if (data['success']) {
-                              //     // $(".sub_chk:checked").each(function() {
-                              //     //     $(this).parents("tr").remove();
-                              //     // });
-                              //     alert(data['success']);
-                              // } else if (data['error']) {
-                              //     alert(data['error']);
-                              // } else {
-                              //     alert('Whoops Something went wrong!!');
-                              // }
-                          },
-                          error: function (data) {
-                              alert(data.responseText);
-                          }
-                      });
-
-
-                    // $.each(allVals, function( index, value ) {
-                    //     $('table tr').filter("[data-row-id='" + value + "']").remove();
-                    // });
-                  }
-              }
-          });
-
-
-          $('[data-toggle=confirmation]').confirmation({
-              rootSelector: '[data-toggle=confirmation]',
-              onConfirm: function (event, element) {
-                  element.trigger('confirm');
-              }
-          });
-
-
-          $(document).on('confirm', function (e) {
-              var ele = e.target;
-              // e.preventDefault();
-
-
-              $.ajax({
-                  url: ele.href,
-                  type: 'DELETE',
-                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                  success: function (data) {
-                    window.location.replace("/manage/category/");
-                      // if (data['success']) {
-                      //     $("#" + data['tr']).slideUp("slow");
-                      //     alert(data['success']);
-                      // } else if (data['error']) {
-                      //     alert(data['error']);
-                      // } else {
-                      //     alert('Whoops Something went wrong!!');
-                      // }
-                  },
-                  error: function (data) {
-                      alert(data.responseText);
-                  }
-              });
-
-
-              return false;
-          });
       });
     </script>
     <script type="application/javascript">

@@ -1,21 +1,11 @@
-<header  class=" flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
 <div class="header bg-gradient-primary py-7 py-lg-8">
-    <!-- <div class="container"> -->
-    <div >
+    <div class="container">
         <div class="header-body text-center mb-7">
             <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12 col-sm-12" style="display: table-cell;  vertical-align: middle;">
+                <div class="col-lg-5 col-md-6">
                     <!-- <h1 class="text-white">{{ __('Welcome to Argon Dashboard FREE Laravel Live Preview.') }}</h1> -->
                     <!-- <h1 class="text-white">{{ __('Here is the header.') }}</h1> -->
-                    <div class="col-lg-2 col-md-2 col-sm-12 cheader-logo slide-out shrink cell logo_img">
-                      <img src="{{ URL::to('/') }}/images/{{ $site_logo }}" style="width: 180px;  padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 10px; margin: 0 0 0 0; "  />
-                    </div>
-                    <div style="height: 100%; display: table-cell; vertical-align: middle;" class="col-lg-8 col-md-8 col-sm-12 menu-items show-for-medium auto cell no-padding">
-                      <h1 class="site_title" > {{ $site_name }}  :: {{ $site_title }}</h1>
-                    </div>
-                    <div style="height: 125px;" class="hide_small col-lg-2 col-md-2 header-logo slide-out shrink cell logo_img">
-                      <img src="{{ URL::to('/') }}/images/cow.png" id="header_banner_img" name="header_banner_img" style="width: 140px;  padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 10px; margin: 0 0 0 0; "  />
-                    </div>
+                    <h1 class="text-white"><?php echo __('lang.welcome') ?> {{ $site_name }}  :: <?php echo __('lang.title');?></h1>
                 </div>
             </div>
         </div>
@@ -80,4 +70,3 @@
         </svg>
     </div> -->
 </div>
-</header>
