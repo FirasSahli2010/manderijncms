@@ -49,4 +49,21 @@ class Categories extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function language(){
+      return $this->belongsTo(Languages::class);
+    }
+
+    public function parent_category() {
+       return $this->belongsTo(Categories::class);
+    }
+
+    public function posts(){
+      return $this->hasMany(Posts::class);
+    }
+
+    public function pages(){
+      return $this->hasMany(Pages::class);
+    }
+
 }
