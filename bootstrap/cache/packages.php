@@ -98,6 +98,13 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'reliese/laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Reliese\\Coders\\CodersServiceProvider',
+    ),
+  ),
   'unisharp/laravel-filemanager' => 
   array (
     'providers' => 
