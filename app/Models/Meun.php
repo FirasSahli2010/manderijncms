@@ -22,13 +22,13 @@ class Meun extends Model
       'name',
       'slug',
       'category',
-      'langauge',
+      'language',
       'shw',
       'is-main-menu',
       'possition'
     ];
 
-    public $sortable = ['id', 'title', 'name', 'langauge', 'shw', 'possition', 'is-main-menu', 'created_at', 'updated_at'];
+    public $sortable = ['id', 'title', 'name', 'language', 'shw', 'possition', 'is-main-menu', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -48,5 +48,20 @@ class Meun extends Model
         'email_verified_at' => 'datetime',
     ];
 
+    public function parent_language(){
+      return $this->belongsTo(Languages::class, 'language');
+    }
+
+    public function parent_category() {
+       return $this->belongsTo(Categories::class, 'category');
+    }
+
+    public function page(){
+      return $this->belongsTo(Pages::class);
+    }
+
+    public function menu_items() {
+      return $this->hasMany(MeunItem::class, 'menu_id');
+    }
 
 }
