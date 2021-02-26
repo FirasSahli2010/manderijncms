@@ -85,7 +85,7 @@
                           <div class="col-lg-12">
                             <input class="btn btn-primary" type="submit" name="save_{{ $setting_items->id }}" id="save_{{ $setting_items->id }}" value="Save">
                             <input class="btn btn-primary" type="reset" value="Reset">
-                            <a class="btn btn-primary" href="{{ route('category.index') }}">Cancel</a>
+                            <a class="btn btn-primary" href="{{ route('manage_index') }}">Cancel</a>
                           </div>
                       </div>
                     </form>
