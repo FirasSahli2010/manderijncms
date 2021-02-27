@@ -65,7 +65,7 @@ class CategoriesController extends Controller
       $category->shw ='N';
 
       $category->save();
-      return redirect('manage/category')->with('message', 'Category published!');
+      return redirect('manage/category')->with('message', 'Category un-published!');
     }
 
     public function permdelete($id) {
@@ -211,6 +211,6 @@ class CategoriesController extends Controller
           }
         }
         // $result = Categories::whereIn('id',explode(",",$ids))->delete();
-        return redirect('/manage/category/')->with('message','Record deleted!');
+        return redirect('/manage/category/')->with('message','Records deleted!');
     }
 }

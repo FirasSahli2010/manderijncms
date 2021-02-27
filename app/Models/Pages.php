@@ -54,4 +54,17 @@ class Pages extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function language(){
+      return $this->belongsTo(Languages::class);
+    }
+
+    public function category() {
+       return $this->belongsTo(Categories::class);
+    }
+
+    public function posts(){
+      return $this->hasMany(Posts::class);
+    }
+
 }

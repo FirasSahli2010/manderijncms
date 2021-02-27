@@ -29,7 +29,7 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
-    /*
+    /*provid
     |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
@@ -81,7 +81,18 @@ return [
     |
     */
 
-    'locale' => 'en',
+    //'locale' => 'en',
+    'locale' => 'ar',
+
+    /**
+     * List of alternative languages (not including the one specified as 'locale')
+     */
+    'alt_langs' => array ('en'),
+
+    /**
+     *  Prefix of selected locale  - leave empty (set in runtime)
+     */
+    'locale_prefix' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +105,9 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ar',
+
+    'languages' => ['ar','en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -204,6 +217,10 @@ return [
         * Sortable table provider
         */
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+
+        App\Providers\HeaderFooterViewComposerServiseProvider::class,
+
+        // App\Providers\LocaleServiceProvider::class,
 
     ],
 

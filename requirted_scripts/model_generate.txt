@@ -1,0 +1,29 @@
+composer require reliese/laravel --dev
+
+Then you'll need to register the provider in app/Providers/AppServiceProvider.php file.
+
+public function register()
+{
+    if ($this->app->environment() == 'local') {
+        $this->app->register(\Reliese\Coders\CodersServiceProvider::class);
+    }
+}
+
+
+Add the models.php configuration file to your config directory and clear the config cache:
+
+php artisan vendor:publish --tag=reliese-models
+php artisan config:clear
+
+
+Usage
+Assuming you have already configured your database, you are now all set to go.
+
+Let's scaffold some of your models from your default connection.
+php artisan code:models
+You can scaffold a specific table like this:
+php artisan code:models --table=users
+You can also specify the connection:
+php artisan code:models --connection=mysql
+If you are using a MySQL database, you can specify which schema you want to scaffold:
+php artisan code:models --schema=shop
