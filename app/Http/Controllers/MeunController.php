@@ -34,8 +34,6 @@ class MeunController extends Controller
 
       $langListAsJSON = $this->langController->get_language_list();
 
-      // $categories = Categories::orderBy('updated_at', request()->sort())->paginate(10);
-      //return view('manage.category.index')->with('categories', compact('categories'));
       return view('manage.menu.index',compact('menus'));
     }
 
@@ -220,7 +218,7 @@ class MeunController extends Controller
           $result = $menu->delete(); //delete the fetched category
 
           if (!$result) {
-            return redirect('/manage/menu/')->with('menu','Not all records deleted!');
+            return redirect('/manage/menu/')->with('message','Not all records deleted!');
           }
         }
         // $result = Categories::whereIn('id',explode(",",$ids))->delete();
