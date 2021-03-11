@@ -79,6 +79,10 @@ Route::prefix('manage')->group(function () {
   Route::put('/setting/update', 'App\Http\Controllers\SettingController@update');
   Route::get('/setting/', 'App\Http\Controllers\SettingController@index');
 
+  Route::get('/contact/mycontactDeleteAll', 'App\Http\Controllers\ContactController@deleteAll');
+  Route::get('/contact/{contact}/delete/', 'App\Http\Controllers\ContactController@destroy')->where('contact', '[0-9]+');
+  Route::resource('contact', 'App\Http\Controllers\ContactController');
+
   //
   // Route::post('image-upload', [ ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');
 
