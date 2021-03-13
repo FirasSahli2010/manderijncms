@@ -151,7 +151,16 @@ class LanguagesController extends Controller
       return redirect('manage/language')->with('message', 'Language enabled!');
     }
 
+    public function disable($id)
+    {
 
+      $language = Languages::findorfail($id);
+
+      $language->shw ='N';
+
+      $language->save();
+      return redirect('manage/language')->with('message', 'Language disabled!');
+    }
 
     public function set_default($id)
     {
@@ -167,17 +176,6 @@ class LanguagesController extends Controller
 
       $language->save();
       return redirect('manage/language')->with('message', 'Default language changed!');
-    }
-
-    public function disable($id)
-    {
-
-      $language = Languages::findorfail($id);
-
-      $language->shw ='N';
-
-      $language->save();
-      return redirect('manage/language')->with('message', 'Language disabled!');
     }
 
     /**
