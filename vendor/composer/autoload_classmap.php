@@ -46,6 +46,10 @@ return array(
     'App\\Http\\View\\Composers\\HeaderFooterComposer' => $baseDir . '/app/Http/View/Composers/HeaderFooterComposer.php',
     'App\\Models\\Block' => $baseDir . '/app/Models/Block.php',
     'App\\Models\\Categories' => $baseDir . '/app/Models/Categories.php',
+
+    'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
+
+
     'App\\Models\\Langauge' => $baseDir . '/app/Models/Langauge.php',
     'App\\Models\\Language' => $baseDir . '/app/Models/Language.php',
     'App\\Models\\Languages' => $baseDir . '/app/Models/Languages.php',
@@ -54,7 +58,9 @@ return array(
     'App\\Models\\Pages' => $baseDir . '/app/Models/Pages.php',
     'App\\Models\\Posts' => $baseDir . '/app/Models/Posts.php',
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
+
     'App\\Models\\Template' => $baseDir . '/app/Models/Template.php',
+
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\manage' => $baseDir . '/app/Models/manage.php',
     'App\\Models\\site_settings' => $baseDir . '/app/Models/site_settings.php',
@@ -172,6 +178,7 @@ return array(
     'Database\\Factories\\BlockFactory' => $baseDir . '/database/factories/BlockFactory.php',
     'Database\\Factories\\CategoriesFactory' => $baseDir . '/database/factories/CategoriesFactory.php',
     'Database\\Factories\\CategoryFactory' => $baseDir . '/database/factories/CategoryFactory.php',
+    'Database\\Factories\\ContactFactory' => $baseDir . '/database/factories/ContactFactory.php',
     'Database\\Factories\\LangaugeFactory' => $baseDir . '/database/factories/LangaugeFactory.php',
     'Database\\Factories\\LanguageFactory' => $baseDir . '/database/factories/LanguageFactory.php',
     'Database\\Factories\\LanguagesFactory' => $baseDir . '/database/factories/LanguagesFactory.php',

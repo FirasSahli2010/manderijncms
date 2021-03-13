@@ -640,6 +640,9 @@ class ComposerStaticInit1622e8a63b7e20bd076ac701e7ab92d6
         'App\\Http\\View\\Composers\\HeaderFooterComposer' => __DIR__ . '/../..' . '/app/Http/View/Composers/HeaderFooterComposer.php',
         'App\\Models\\Block' => __DIR__ . '/../..' . '/app/Models/Block.php',
         'App\\Models\\Categories' => __DIR__ . '/../..' . '/app/Models/Categories.php',
+
+        'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
+
         'App\\Models\\Langauge' => __DIR__ . '/../..' . '/app/Models/Langauge.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',
         'App\\Models\\Languages' => __DIR__ . '/../..' . '/app/Models/Languages.php',
@@ -648,7 +651,9 @@ class ComposerStaticInit1622e8a63b7e20bd076ac701e7ab92d6
         'App\\Models\\Pages' => __DIR__ . '/../..' . '/app/Models/Pages.php',
         'App\\Models\\Posts' => __DIR__ . '/../..' . '/app/Models/Posts.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
+
         'App\\Models\\Template' => __DIR__ . '/../..' . '/app/Models/Template.php',
+
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\manage' => __DIR__ . '/../..' . '/app/Models/manage.php',
         'App\\Models\\site_settings' => __DIR__ . '/../..' . '/app/Models/site_settings.php',
@@ -766,6 +771,7 @@ class ComposerStaticInit1622e8a63b7e20bd076ac701e7ab92d6
         'Database\\Factories\\BlockFactory' => __DIR__ . '/../..' . '/database/factories/BlockFactory.php',
         'Database\\Factories\\CategoriesFactory' => __DIR__ . '/../..' . '/database/factories/CategoriesFactory.php',
         'Database\\Factories\\CategoryFactory' => __DIR__ . '/../..' . '/database/factories/CategoryFactory.php',
+        'Database\\Factories\\ContactFactory' => __DIR__ . '/../..' . '/database/factories/ContactFactory.php',
         'Database\\Factories\\LangaugeFactory' => __DIR__ . '/../..' . '/database/factories/LangaugeFactory.php',
         'Database\\Factories\\LanguageFactory' => __DIR__ . '/../..' . '/database/factories/LanguageFactory.php',
         'Database\\Factories\\LanguagesFactory' => __DIR__ . '/../..' . '/database/factories/LanguagesFactory.php',

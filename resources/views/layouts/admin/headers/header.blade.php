@@ -19,11 +19,13 @@
             <a style="font-size: 16px;" class="p-2 text-dark" href="/manage/site_settings">Site identity</a>
             <a style="font-size: 16px;" class="p-2 text-dark" href="/manage/setting">Site Theme</a>
             <a style="font-size: 16px;" class="p-2 text-dark" href="/manage/mainmenu">Main Menu</a>
-            <a style="font-size: 16px;" class="p-2 text-dark disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a style="font-size: 16px;" class="p-2 text-dark" href="/manage/contact">Contacts</a>
+            <!-- <a style="font-size: 16px;" class="p-2 text-dark disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            <!-- <a style="font-size: 16px;" class="p-2 text-dark" href="#">Enterprise</a> -->
             <a style="font-size: 16px;" class="p-2 text-dark" href="#">Features</a>
-            <a style="font-size: 16px;" class="p-2 text-dark" href="#">Enterprise</a>
+
             <a style="font-size: 16px;" class="p-2 text-dark" href="#">Support</a>
-            <a style="font-size: 16px;" class="p-2 text-dark" href="#">Pricing</a>
+            <!-- <a style="font-size: 16px;" class="p-2 text-dark" href="#">Pricing</a> -->
           </nav>
         </div>
         <div class="col-md-3 ms-sm-auto col-lg-3 px-md-4">
