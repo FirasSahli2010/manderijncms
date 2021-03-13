@@ -18,31 +18,15 @@ class CategoriesController extends Controller
         $this->langController = new LanguagesController();
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
-    {
-        //
-    }
-
     public function index() {
-      // $sort = $request->input('sort', 'asc');
-      //$categories = Categories::orderBy('updated_at')->paginate(10);
       $categories = Categories::sortable()->withTrashed()->where('id', '!=', 1)->paginate(10);
 
       $langListAsJSON = $this->langController->get_language_list();
 
-      // $categories = Categories::orderBy('updated_at', request()->sort())->paginate(10);
-      //return view('manage.category.index')->with('categories', compact('categories'));
       return view('manage.category.index',compact('categories'));
     }
 
     public function show($id) {
-      //$category = Categories::findOrFail($id).get();
       return view('manage.category.detail', ['category' => Categories::findOrFail($id)]);
     }
 

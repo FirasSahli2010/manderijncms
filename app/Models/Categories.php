@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Kyslik\ColumnSortable\Sortable;
-use Illuminate\Database\Eloquent\SoftDeletes; //add this line
+use Illuminate\Database\Eloquent\SoftDeletes; //soft delete
 
 class Categories extends Model
 {
