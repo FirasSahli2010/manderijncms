@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
+    'App\\Http\\Controllers\\BlockController' => $baseDir . '/app/Http/Controllers/BlockController.php',
     'App\\Http\\Controllers\\CategoriesController' => $baseDir . '/app/Http/Controllers/CategoriesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
@@ -43,8 +44,12 @@ return array(
     'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
     'App\\Http\\View\\Composers\\HeaderFooterComposer' => $baseDir . '/app/Http/View/Composers/HeaderFooterComposer.php',
+    'App\\Models\\Block' => $baseDir . '/app/Models/Block.php',
     'App\\Models\\Categories' => $baseDir . '/app/Models/Categories.php',
+
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
+
+
     'App\\Models\\Langauge' => $baseDir . '/app/Models/Langauge.php',
     'App\\Models\\Language' => $baseDir . '/app/Models/Language.php',
     'App\\Models\\Languages' => $baseDir . '/app/Models/Languages.php',
@@ -53,6 +58,9 @@ return array(
     'App\\Models\\Pages' => $baseDir . '/app/Models/Pages.php',
     'App\\Models\\Posts' => $baseDir . '/app/Models/Posts.php',
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
+
+    'App\\Models\\Template' => $baseDir . '/app/Models/Template.php',
+
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\manage' => $baseDir . '/app/Models/manage.php',
     'App\\Models\\site_settings' => $baseDir . '/app/Models/site_settings.php',
@@ -167,6 +175,7 @@ return array(
     'Cron\\HoursField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+    'Database\\Factories\\BlockFactory' => $baseDir . '/database/factories/BlockFactory.php',
     'Database\\Factories\\CategoriesFactory' => $baseDir . '/database/factories/CategoriesFactory.php',
     'Database\\Factories\\CategoryFactory' => $baseDir . '/database/factories/CategoryFactory.php',
     'Database\\Factories\\ContactFactory' => $baseDir . '/database/factories/ContactFactory.php',
@@ -179,7 +188,9 @@ return array(
     'Database\\Factories\\PagesFactory' => $baseDir . '/database/factories/PagesFactory.php',
     'Database\\Factories\\PostsFactory' => $baseDir . '/database/factories/PostsFactory.php',
     'Database\\Factories\\SiteSettingsFactory' => $baseDir . '/database/factories/SiteSettingsFactory.php',
+    'Database\\Factories\\TemplateFactory' => $baseDir . '/database/factories/TemplateFactory.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
+    'Database\\Seeders\\BlockSeeder' => $baseDir . '/database/seeders/BlockSeeder.php',
     'Database\\Seeders\\CategorySeeder' => $baseDir . '/database/seeders/CategorySeeder.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
     'Database\\Seeders\\LanguagesTableSeeder' => $baseDir . '/database/seeders/LanguagesTableSeeder.php',
@@ -188,6 +199,7 @@ return array(
     'Database\\Seeders\\MeunSeeder' => $baseDir . '/database/seeders/MeunSeeder.php',
     'Database\\Seeders\\PagesSeeder' => $baseDir . '/database/seeders/PagesSeeder.php',
     'Database\\Seeders\\SiteSettingsSeeder' => $baseDir . '/database/seeders/SiteSettingsSeeder.php',
+    'Database\\Seeders\\TemplateSeeder' => $baseDir . '/database/seeders/TemplateSeeder.php',
     'Database\\Seeders\\UsersTableSeeder' => $baseDir . '/database/seeders/UsersTableSeeder.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
