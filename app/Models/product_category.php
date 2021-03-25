@@ -55,5 +55,8 @@ class product_category extends Model
       return $this->belongsTo(Languages::class);
     }
 
-    
+    public function products()
+    {
+      return $this->hasMany(Product::class, 'product_product_category', 'product_category_id', 'product_id');
+    }
 }
