@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Kyslik\ColumnSortable\Sortable;
-use Illuminate\Database\Eloquent\SoftDeletes; //soft delete
+use Illuminate\Database\Eloquent\SoftDeletes; //needed for soft delete
 
-class Categories extends Model
+class product_category extends Model
 {
     use HasFactory;
+
     use Sortable;
     use SoftDeletes;
 
@@ -54,16 +55,8 @@ class Categories extends Model
       return $this->belongsTo(Languages::class);
     }
 
-    public function parent_category() {
-       return $this->belongsTo(Categories::class);
+    public function products()
+    {
+      return $this->hasMany(Product::class, 'product_product_category', 'product_category_id', 'product_id');
     }
-
-    public function posts(){
-      return $this->hasMany(Posts::class);
-    }
-
-    public function pages(){
-      return $this->hasMany(Pages::class);
-    }
-
 }

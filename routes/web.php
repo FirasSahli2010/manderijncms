@@ -90,6 +90,23 @@ Route::prefix('manage')->group(function () {
   Route::get('/block/{block}/delete/', 'App\Http\Controllers\BlockController@destroy')->where('menu', '[0-9]+');
   Route::resource('block', 'App\Http\Controllers\BlockController');
 
+  Route::get('/product_category/myproduct_categoryDeleteAll', 'App\Http\Controllers\CategoriesController@deleteAll');
+
+  Route::get('/product_category/{product_category}/delete/', 'App\Http\Controllers\ProductCategoryController@destroy')->where('product_category', '[0-9]+');
+
+  Route::get('/product_category/{product_category}/permdelete/', 'App\Http\Controllers\ProductCategoryController@permdelete')->where('product_category', '[0-9]+');
+  Route::get('/product_category/{product_category}/restore/', 'App\Http\Controllers\ProductCategoryController@restore')->where('product_category', '[0-9]+');
+  Route::get('/product_category/{product_category}/enable', 'App\Http\Controllers\ProductCategoryController@enable');
+  Route::get('/product_category/{product_category}/disable', 'App\Http\Controllers\ProductCategoryController@disable');
+
+  Route::resource('product_category', 'App\Http\Controllers\ProductCategoryController');
+
+  Route::get('/products/{product}/enable', 'App\Http\Controllers\ProductController@enable');
+  Route::get('/products/{product}/disable', 'App\Http\Controllers\ProductController@disable');
+  Route::get('/products/myProductDeleteAll', 'App\Http\Controllers\ProductController@deleteAll');
+  Route::get('/products/{product}/delete/', 'App\Http\Controllers\ProductController@destroy')->where('product', '[0-9]+');
+  Route::resource('products', 'App\Http\Controllers\ProductController');
+
 
   //
   // Route::post('image-upload', [ ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');
