@@ -101,6 +101,12 @@ Route::prefix('manage')->group(function () {
 
   Route::resource('product_category', 'App\Http\Controllers\ProductCategoryController');
 
+  Route::get('/products/{product}/enable', 'App\Http\Controllers\ProductController@enable');
+  Route::get('/products/{product}/disable', 'App\Http\Controllers\ProductController@disable');
+  Route::get('/products/myProductDeleteAll', 'App\Http\Controllers\ProductController@deleteAll');
+  Route::get('/products/{product}/delete/', 'App\Http\Controllers\ProductController@destroy')->where('product', '[0-9]+');
+  Route::resource('products', 'App\Http\Controllers\ProductController');
+
 
   //
   // Route::post('image-upload', [ ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');
