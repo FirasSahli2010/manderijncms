@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPositionToBlock extends Migration
+class AddShwToProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPositionToBlock extends Migration
      */
     public function up()
     {
-        Schema::table('blocks', function (Blueprint $table) {
-            $table->integer('possition')->default(1);
+        Schema::table('products', function (Blueprint $table) {
+            $table->enum('shw', ['Y', 'N'])->default('N');
         });
     }
 
@@ -25,8 +25,8 @@ class AddPositionToBlock extends Migration
      */
     public function down()
     {
-        Schema::table('blocks', function (Blueprint $table) {
-            $table->dropColumn('possition');
+        Schema::table('products', function (Blueprint $table) {
+            $table->enum('shw', ['Y', 'N'])->default('N');
         });
     }
 }
